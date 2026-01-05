@@ -1,13 +1,13 @@
-API_ID = 123456
-API_HASH = "API_HASH"
-BOT_TOKEN = "BOT_TOKEN"
+API_ID = 23250949
+API_HASH = "25ad48c711d987870524b0bb9d8915be"
+BOT_TOKEN = "8299606988:AAFYJdeV4WrmJpDREyvVclYYylFJYxQdhs4"
 
-OWNER_ID = 123456789
+OWNER_ID = 8077687479
 
-MONGO_URI = "mongodb://localhost:27017"
-DB_NAME = "manager_bot"
+MONGO_URI = "mongodb+srv://BOT1:BOT1@newoneisgood.4gbrpi1.mongodb.net/?appName=newoneisgood"
+DB_NAME = "BOT1"
 
 # usernames without @
-FORCE_SUB_CHANNELS = ["channelone", "channeltwo"]
+FORCE_SUB_CHANNELS = ["-1002230463704", "-1002646497078"]
 
-LOG_CHANNEL_ID = -1001234567890
+LOG_CHANNEL_ID = -1003205726318
