@@ -3,7 +3,6 @@ from core.config import Config
 from bot.panel import register_panel
 from bot.update import register_update
 
-
 app = Client(
     "control-bot",
     api_id=Config.API_ID,
@@ -12,5 +11,7 @@ app = Client(
 )
 
 register_panel(app)
+register_update(app)
+
 print("Control bot started")
 app.run()
