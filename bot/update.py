@@ -6,28 +6,26 @@ def register_update(app):
 
     @app.on_message(filters.command("update") & filters.user(Config.OWNER_ID))
     async def update_bot(_, msg):
-        status = await msg.reply("🔄 **Updating bot...**")
+        status = await msg.reply("🔄 **Updating system...**")
 
         try:
-            pull = subprocess.check_output(
+            pull = subprocess.run(
                 ["git", "pull"],
-                stderr=subprocess.STDOUT
-            ).decode()
+                capture_output=True,
+                text=True
+            )
 
-            restart = subprocess.check_output(
+            restart = subprocess.run(
                 ["pm2", "restart", "all"],
-                stderr=subprocess.STDOUT
-            ).decode()
-
-            await status.edit(
-                "✅ **Update Successful**\n\n"
-                "📥 Git Output:\n"
-                f"```{pull[-3000:]}```\n"
-                "♻️ PM2 Restarted"
+                capture_output=True,
+                text=True
             )
 
-        except subprocess.CalledProcessError as e:
-            await status.edit(
-                "❌ **Update Failed**\n\n"
-                f"```{e.output.decode()}```"
+            output = (
+                "📥 **Git Pull:**\n"
+                f"```\n{pull.stdout.strip()}\n```\n\n"
+                "♻️ **PM2 Restart:**\n"
+                f"```\n{restart.stdout.strip()}\n```"
             )
+
+            await sta
